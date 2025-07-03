@@ -1,0 +1,15 @@
+.header {
+background-color: #ffffff;
+padding: 10px 0px;
+display:flex;
+justify-content: center;
+}
+
+.header__logo {
+width: 94px;
+height: 24px;
+}
+
+
+
+
