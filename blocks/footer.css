@@ -1,12 +1,11 @@
 .footer{
 text-align: center;
-margin-top: auto;
 text-align: center;
 padding: 60px 0;
 }
 
 
-.footer p {
-margin-bottom:0;
+.footer__content {
+margin:0;
 
 }

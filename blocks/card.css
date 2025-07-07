@@ -12,13 +12,15 @@ border-radius: 10px 10px 10px 10px;
  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 10px 10px 0;
+  padding: 10px 0 0 0;
   border-radius: 0 0 10px 10px;
 }
 
 .card__title {
 margin: 0;
 font-size: 18px;
+font-weight: 500px;
+
 }
 
 .card__like-button {
@@ -29,10 +31,16 @@ font-size: 18px;
   background-size: cover;
   background-color: transparent;
   border: none;
-  opacity: 0.4;
   cursor: pointer;
 }
 
+.card__like-button:hover  {
+opacity: 0.4;
+
+
+
+
+}
 
 @media screen and ( max-width: 627px) {
 .card__image {
