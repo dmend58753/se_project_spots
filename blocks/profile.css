@@ -47,13 +47,21 @@ max-width: 420px;
   border: none;
   outline: none;
   box-shadow: none;
-  padding: 10px 16px;
   border-radius: 6px; 
   cursor: pointer;
   color: #212121B2;
   margin-right: auto;
   padding-left: 0;
 }
+
+.profile__edit-btn:hover{
+  background-color: #212121;
+  color: #ffffff;
+  opacity: 0.85;
+
+
+}
+
 
 .profile__add-btn {
   margin-left: auto;
@@ -64,7 +72,14 @@ max-width: 420px;
     border-radius: 10px;
     width: 149px;
     margin-top: 150px;
+    cursor: pointer;
 }
+
+.profile__add-btn:hover {
+  background-color: #212121;
+  color: #ffffff;
+}
+
 
 
 .profile__add-btn img {
