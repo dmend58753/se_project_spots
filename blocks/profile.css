@@ -52,12 +52,11 @@ max-width: 420px;
   color: #212121B2;
   margin-right: auto;
   padding-left: 0;
+  opacity: .70;
 }
 
 .profile__edit-btn:hover{
-  background-color: #212121;
-  color: #ffffff;
-  opacity: 0.85;
+  opacity: 1.0;
 
 
 }
@@ -76,13 +75,12 @@ max-width: 420px;
 }
 
 .profile__add-btn:hover {
-  background-color: #212121;
-  color: #ffffff;
+  opacity: 0.8;
 }
 
 
 
-.profile__add-btn img {
+.profile__add-btn-icon {
   width: 14px;
   height: 15px;
   object-fit: contain;
