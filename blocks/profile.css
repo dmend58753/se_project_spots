@@ -15,7 +15,6 @@ border-radius: 10px;
 }
 
 .profile__column {
-display: flex;
 flex-direction: column;
 }
 
@@ -53,6 +52,7 @@ max-width: 420px;
   margin-right: auto;
   padding-left: 0;
   opacity: .70;
+  margin-top: 13px;
 }
 
 .profile__edit-btn:hover{
