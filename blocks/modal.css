@@ -137,10 +137,6 @@
   opacity: 1;
 }
 
-
-
-
-
 @media (max-width: 600px) {
   .modal__container {
     padding: 12px;
@@ -166,17 +162,14 @@
     width: 32px;
     height: 32px;
   }
-.modal {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  
-}
+  .modal {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
-.modal_is-opened {
-  visibility: visible;
-  opacity: 1;
+  .modal_is-opened {
+    visibility: visible;
+    opacity: 1;
+  }
 }
-}
-
-
