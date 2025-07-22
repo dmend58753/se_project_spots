@@ -16,6 +16,7 @@ border-radius: 10px;
 
 .profile__column {
 flex-direction: column;
+display: flex;
 }
 
 .profile__name {
@@ -52,7 +53,7 @@ max-width: 420px;
   margin-right: auto;
   padding-left: 0;
   opacity: .70;
-  margin-top: 13px;
+
 }
 
 .profile__edit-btn:hover{
