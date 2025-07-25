@@ -20,17 +20,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Modal open/close functions
   function openModal(modal) {
+    modal.style.visibility = "visible";
     modal.classList.add("modal_is-opened");
   }
 
   function closeModal(modal) {
     modal.classList.remove("modal_is-opened");
+    setTimeout(() => {
+      modal.style.visibility = "hidden";
+      modal.removeAttribute("style");
+    }, 300);
   }
 
   // Open Edit Profile modal and prefill inputs
   editButton.addEventListener("click", () => {
     const nameInput = popupProfile.querySelector("#profile-name-input");
-    const descriptionInput = popupProfile.querySelector("#profile-description-input");
+    const descriptionInput = popupProfile.querySelector(
+      "#profile-description-input"
+    );
     nameInput.value = profileNameEl.textContent;
     descriptionInput.value = profileDescriptionEl.textContent;
     openModal(popupProfile);
@@ -58,33 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
   profileEditForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const nameInput = popupProfile.querySelector("#profile-name-input");
-    const descriptionInput = popupProfile.querySelector("#profile-description-input");
+    const descriptionInput = popupProfile.querySelector(
+      "#profile-description-input"
+    );
     profileNameEl.textContent = nameInput.value;
     profileDescriptionEl.textContent = descriptionInput.value;
     closeModal(popupProfile);
-  });
-
-  // Handle New Post form submit (adds new card)
-  cardForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const imageInput = popupAddCard.querySelector("#card-image-input");
-    const descInput = popupAddCard.querySelector("#post-description-input");
-
-    const card = document.createElement("li");
-    card.classList.add("card");
-
-    card.innerHTML = `
-      <img src="${imageInput.value}" alt="${descInput.value}" class="card__image" />
-      <div class="card__content">
-        <h2 class="card__title">${descInput.value}</h2>
-        <button type="button" class="card__like-button">
-          <img src="./spots-images/Like-Icon.svg" alt="like icon" />
-        </button>
-      </div>
-    `;
-
-    cardsContainer.prepend(card);
-    cardForm.reset();
-    closeModal(popupAddCard);
   });
 });
