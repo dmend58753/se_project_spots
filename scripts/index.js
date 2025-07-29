@@ -1,3 +1,30 @@
+const initialCards = [
+  {
+    name: "Val Thorens",
+    link: "./spots-images/1-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+  {
+    name: "Restaurant terrace",
+    link: "./spots-images/2-photo-by-ceiline-from-pexels.jpg",
+  },
+  {
+    name: "An outdoor cafe",
+    link: "./spots-images/3-photo-by-tubanur-dogan-from-pexels.jpg",
+  },
+  {
+    name: "A very long bridge, over the forest...",
+    link: "./spots-images/4-photo-by-maurice-laschet-from-pexels.jpg",
+  },
+  {
+    name: "Tunnel with morning light",
+    link: "./spots-images/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  },
+  {
+    name: "Mountain house",
+    link: "./spots-images/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   const popupProfile = document.querySelector("#edit-profile-modal");
   const popupAddCard = document.querySelector("#new-post-modal");
