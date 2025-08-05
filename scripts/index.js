@@ -40,21 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileNameEl = document.querySelector(".profile__name");
   const profileDescriptionEl = document.querySelector(".profile__description");
 
-
   const previewModal = document.querySelector("#preview-image-modal");
   const previewImage = previewModal.querySelector(".modal__image");
   const previewCaption = previewModal.querySelector(".modal__caption");
 
- const cardsContainer = document.querySelector(".cards__list");
-
+  const cardsContainer = document.querySelector(".cards__list");
 
   function openModal(modal) {
-    modal.style.visibility = "visible";
     modal.classList.add("modal_is-opened");
   }
 
   function closeModal(modal) {
-    modal.style.visibility = "hidden";
     modal.classList.remove("modal_is-opened");
   }
 
@@ -73,33 +69,27 @@ document.addEventListener("DOMContentLoaded", () => {
     cardImageEl.alt = data.name;
     cardTitleEl.textContent = data.name;
 
-cardImageEl.addEventListener("click", () => {
-  previewImage.src = data.link;
-  previewImage.alt = data.name;
-  previewCaption.textContent = data.name;
-  openModal(previewModal);
-});
+    cardImageEl.addEventListener("click", () => {
+      previewImage.src = data.link;
+      previewImage.alt = data.name;
+      previewCaption.textContent = data.name;
+      openModal(previewModal);
+    });
 
+    //like button logic
+    const likeButtonEl = cardElement.querySelector(".card__like-button");
+   
 
+    likeButtonEl.addEventListener("click", () => {
+      likeButtonEl.classList.toggle("card__like-button_active");
+    });
+       
 
-//like button logic
-const likeButtonEl = cardElement.querySelector(".card__like-button");
-const likeIconEl = likeButtonEl.querySelector("img");
-
-  likeButtonEl.addEventListener("click", () => {
-    likeButtonEl.classList.toggle("card__like-button_active");
-      if (likeButtonEl.classList.contains("card__like-button_active")) {
-    likeIconEl.src = "./spots-images/Liked-button.svg";
-  } else {
-    likeIconEl.src = "./spots-images/Like-Icon.svg";
-  }
-  });               
-
- // delete button logic
-  const deleteButtonEl = cardElement.querySelector(".card__delete-button");
-  deleteButtonEl.addEventListener("click", () => {
-    cardElement.remove();
-  });
+    // delete button logic
+    const deleteButtonEl = cardElement.querySelector(".card__delete-button");
+    deleteButtonEl.addEventListener("click", () => {
+      cardElement.remove();
+    });
 
     return cardElement;
   }
@@ -162,9 +152,9 @@ const likeIconEl = likeButtonEl.querySelector("img");
     cardsList.append(cardElement);
   });
 
-previewModal.addEventListener("mousedown", (e) => {
-  if (e.target === previewModal) {
-    closeModal(previewModal);
-  }
-});
+  previewModal.addEventListener("mousedown", (e) => {
+    if (e.target === previewModal) {
+      closeModal(previewModal);
+    }
+  });
 });
