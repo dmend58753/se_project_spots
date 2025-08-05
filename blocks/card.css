@@ -23,7 +23,7 @@
 .card__like-button {
   width: 23px;
   height: 20px;
-  background-image: url('../spots-images/Like-Icon.svg');
+  background-image: url("../spots-images/Like-Icon.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: transparent;
@@ -31,20 +31,17 @@
   cursor: pointer;
 }
 
-
-
 .card__like-button_active {
   opacity: 1;
-  background-image: url('../spots-images/Liked-button.svg');
+  background-image: url("../spots-images/Liked-button.svg");
 }
 
 .card__like-button:hover {
   opacity: 0.4;
 }
 
-.card{
+.card {
   position: relative;
-  
 }
 
 .card__delete-button {
@@ -53,22 +50,19 @@
   right: 10px;
   width: 32px;
   height: 32px;
-  background-image: url('../spots-images/Trashcan.svg');
+  background-image: url("../spots-images/Trashcan.svg");
   border: none;
-  background-color: rgba(0,0,0,0.3);
-  cursor:pointer;
-   background-repeat: no-repeat;  
-  background-size: 15px;     
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 15px;
   background-position: center;
   border-radius: 50%;
-
 }
 
 .card__delete-button:hover {
-  background-color: #FF6565
+  background-color: #ff6565;
 }
-
-
 
 @media screen and (max-width: 627px) {
   .card__image {

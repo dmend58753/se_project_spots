@@ -78,12 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //like button logic
     const likeButtonEl = cardElement.querySelector(".card__like-button");
-   
 
     likeButtonEl.addEventListener("click", () => {
       likeButtonEl.classList.toggle("card__like-button_active");
     });
-       
 
     // delete button logic
     const deleteButtonEl = cardElement.querySelector(".card__delete-button");
