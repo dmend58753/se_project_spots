@@ -36,26 +36,28 @@
   width: 40px;
   height: 40px;
   font-size: xx-large;
-  background-color: white;
+  background-color: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
+  color: #212121;
 }
 
 .modal__close-btn:hover {
-  color: #212121;
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .modal__close-btn:hover .modal__close-icon {
   opacity: 1;
+  filter: invert(0.2);
 }
 
 .modal__close-icon {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.4;
+  opacity: 1;
+  filter: invert(0.4);
 }
 
 .modal__form {
@@ -71,28 +73,41 @@
   width: 100%;
   height: 78px;
   gap: 8px;
-  display: flex;
+  display: block;
   font-family: "Poppins", sans-serif;
   color: #212121;
   opacity: 0.8;
+  margin-bottom: 32px;
 }
 
 .modal__input {
-  display: flex;
   margin: 8px 0 0;
   height: 52px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  padding-top: 16px;
-  padding-right: 12px;
-  padding-bottom: 16px;
-  padding-left: 12px;
-  gap: 10px;
+  padding: 16px 12px;
   box-sizing: border-box;
+  margin-bottom: 0;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.modal__input-error {
+  display: block;
+  margin-top: 8px;
+  color: #ff6565; /* Red color for errors */
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.2;
 }
 
 .modal__input:hover {
   border-color: #212121;
+}
+
+.modal__input_type_error {
+  border: 1px solid #ff6565;
 }
 
 .modal__input::placeholder {
@@ -112,10 +127,22 @@
   justify-content: center;
   padding: 18px 32px;
   background-color: black;
+  border: none;
+  cursor: pointer;
 }
 
 .modal__submit-btn:hover {
   opacity: 0.8;
+}
+
+.modal__submit-btn:disabled {
+  background-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.modal__submit-btn:disabled:hover {
+  opacity: 1;
 }
 
 .modal__title {
@@ -132,7 +159,6 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease;
-  /* other existing styles */
 }
 
 .modal_is-opened {
@@ -167,7 +193,7 @@
   margin-top: 12px;
   font-size: 14px;
   word-break: break-word;
-  background-color: off-black;
+  background-color: black;
   text-align: left;
   align-self: flex-start;
   font-size: 25px;
