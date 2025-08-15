@@ -1,4 +1,4 @@
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
@@ -9,7 +9,7 @@ const settings = {
 
 console.log("Validation script loaded");
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
   console.log(formList);
 
@@ -59,7 +59,7 @@ const hideInputError = (formEl, inputEl, config) => {
   document.querySelector(`#${errorMessageId}`).textContent = "";
 };
 
-const toggleButtonState = (inputList, buttonEl, config) => {
+export const toggleButtonState = (inputList, buttonEl, config) => {
   console.log(hasInvalidInput(inputList));
 
   if (hasInvalidInput(inputList)) {
@@ -82,7 +82,7 @@ const disableButton = (buttonElement, config) => {
   buttonElement.classList.add(config.inactiveButtonClass);
 };
 
-const resetValidation = (formEl, inputList, buttonElement, config) => {
+export const resetValidation = (formEl, inputList, buttonElement, config) => {
   inputList.forEach((inputEl) => {
     hideInputError(formEl, inputEl, config);
   });
@@ -91,5 +91,3 @@ const resetValidation = (formEl, inputList, buttonElement, config) => {
     disableButton(buttonElement, config);
   }
 };
-
-enableValidation(settings);

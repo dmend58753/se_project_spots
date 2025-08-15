@@ -1,32 +1,65 @@
+import "../pages/index.css";
+import {
+  enableValidation,
+  resetValidation,
+  toggleButtonState,
+  settings as validationConfig,
+} from "../scripts/validation.js";
+
+import image1 from "../images/1-photo-by-moritz-feldmann-from-pexels.jpg";
+import image2 from "../images/2-photo-by-ceiline-from-pexels.jpg";
+import image3 from "../images/3-photo-by-tubanur-dogan-from-pexels.jpg";
+import image4 from "../images/4-photo-by-maurice-laschet-from-pexels.jpg";
+import image5 from "../images/5-photo-by-van-anh-nguyen-from-pexels.jpg";
+import image6 from "../images/6-photo-by-moritz-feldmann-from-pexels.jpg";
+
+import logoSvg from "../images/logo.svg";
+import avatarImg from "../images/avatar.jpg";
+import editProfileSvg from "../images/edit-profile.svg";
+import plusSvg from "../images/plus.svg";
+import closeIconSvg from "../images/close-icon.svg";
+
 const initialCards = [
   {
     name: "Val Thorens",
-    link: "./spots-images/1-photo-by-moritz-feldmann-from-pexels.jpg",
+    link: image1,
   },
   {
     name: "Restaurant terrace",
-    link: "./spots-images/2-photo-by-ceiline-from-pexels.jpg",
+    link: image2,
   },
   {
     name: "An outdoor cafe",
-    link: "./spots-images/3-photo-by-tubanur-dogan-from-pexels.jpg",
+    link: image3,
   },
   {
     name: "A very long bridge, over the forest...",
-    link: "./spots-images/4-photo-by-maurice-laschet-from-pexels.jpg",
+    link: image4,
   },
   {
     name: "Tunnel with morning light",
-    link: "./spots-images/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+    link: image5,
   },
   {
     name: "Mountain house",
-    link: "./spots-images/6-photo-by-moritz-feldmann-from-pexels.jpg",
+    link: image6,
   },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script is running");
+
+  const logo = document.querySelector(".header__logo");
+  const avatar = document.querySelector(".profile__avatar");
+  const editProfileIcon = document.querySelector(".profile__edit-btn-icon");
+  const plusIcon = document.querySelector(".profile__add-btn-icon");
+  const closeIcons = document.querySelectorAll(".modal__close-icon");
+
+  if (logo) logo.src = logoSvg;
+  if (avatar) avatar.src = avatarImg;
+  if (editProfileIcon) editProfileIcon.src = editProfileSvg;
+  if (plusIcon) plusIcon.src = plusSvg;
+  closeIcons.forEach((icon) => (icon.src = closeIconSvg));
 
   const popupProfile = document.querySelector("#edit-profile-modal");
   const popupAddCard = document.querySelector("#new-post-modal");
@@ -101,6 +134,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const descriptionInput = popupProfile.querySelector(
       "#profile-description-input"
     );
+
+    const inputList = popupProfile.querySelectorAll(
+      validationConfig.inputSelector
+    );
+    const buttonElement = popupProfile.querySelector(
+      validationConfig.submitButtonSelector
+    );
+    resetValidation(popupProfile, inputList, buttonElement, validationConfig);
+
     nameInput.value = profileNameEl.textContent;
     descriptionInput.value = profileDescriptionEl.textContent;
     openModal(popupProfile);
@@ -122,16 +164,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  popupProfile.addEventListener("mousedown", (e) => {
-    if (e.target === popupProfile) {
-      closeModal(popupProfile);
-    }
-  });
-
-  popupAddCard.addEventListener("mousedown", (e) => {
-    if (e.target === popupAddCard) {
-      closeModal(popupAddCard);
-    }
+  const modals = document.querySelectorAll(".modal");
+  modals.forEach((modal) => {
+    modal.addEventListener("mousedown", (e) => {
+      if (e.target === modal) {
+        closeModal(modal);
+      }
+    });
   });
 
   profileEditForm.addEventListener("submit", (e) => {
@@ -160,6 +199,15 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsList.prepend(cardElement);
 
     cardForm.reset();
+
+    const inputList = popupAddCard.querySelectorAll(
+      validationConfig.inputSelector
+    );
+    const buttonElement = popupAddCard.querySelector(
+      validationConfig.submitButtonSelector
+    );
+    resetValidation(popupAddCard, inputList, buttonElement, validationConfig);
+
     closeModal(popupAddCard);
   });
 
@@ -176,4 +224,5 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal(previewModal);
     }
   });
+  enableValidation(validationConfig);
 });
