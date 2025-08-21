@@ -7,25 +7,34 @@
     <meta name="description" content="Your description here" />
     <meta name="author" content="Your Name" />
     <meta name="keywords" content="your, keywords, here" />
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   </head>
   <body>
     <div class="page">
       <header class="header">
         <img
-          src="./spots-images/logo.svg"
+          src=""
           alt="Spot logo"
           class="header__logo"
         />
       </header>
       <main class="content">
-        <section class="profile page__section">
-          <img
-            src="./spots-images/avatar.jpg"
-            alt="Bessie Coleman"
-            class="profile__avatar"
-          />
-          <div class="profile__column">
+       <section class="profile page__section">
+  <div class="profile__avatar-container">
+    <img
+      src=""
+      alt="Bessie Coleman"
+      class="profile__avatar"
+    />
+    <button type="button" class="profile__avatar-button">
+      <img
+        class="profile__pencil-icon"
+        src=""
+        alt="Edit avatar"
+      />
+    </button>
+  </div>
+  <div class="profile__column">
             <h1 class="profile__name">
               Bessie Coleman Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu
               Badara Akon
@@ -37,7 +46,7 @@
             <button class="profile__edit-btn">
               <img
                 class="profile__edit-btn-icon"
-                src="./spots-images/edit-profile.svg"
+                src=""
                 alt="Pencil icon"
               />
               Edit profile
@@ -46,7 +55,7 @@
           <button class="profile__add-btn">
             <img
               class="profile__add-btn-icon"
-              src="./spots-images/plus.svg"
+              src=""
               alt="plus icon"
             />
             New post
@@ -78,7 +87,7 @@
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
             <img
-              src="./spots-images/close-icon.svg"
+              src=""
               alt="Close"
               class="modal__close-icon"
             />
@@ -127,7 +136,7 @@
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
             <img
-              src="./spots-images/close-icon.svg"
+              src=""
               alt="Close"
               class="modal__close-icon"
             />
@@ -179,7 +188,7 @@
             class="modal__close-btn modal__close-btn_type_preview"
           >
             <img
-              src="./spots-images/close-icon.svg"
+              src=""
               alt="Close"
               class="modal__close-icon"
             />
@@ -188,6 +197,43 @@
           <p class="modal__caption"></p>
         </div>
       </div>
+      <div class="modal" id="edit-avatar-modal">
+  <div class="modal__container">
+    <button type="button" class="modal__close-btn">
+      <img src="" alt="Close" class="modal__close-icon" />
+    </button>
+    <h2 class="modal__title">Change profile picture</h2>
+    <form class="modal__form" novalidate>
+      <label for="avatar-input" class="modal__label">
+        Image link
+        <input
+          id="avatar-input"
+          type="url"
+          class="modal__input"
+          placeholder="Place a link to the picture"
+          required
+        />
+        <span class="modal__input-error" id="avatar-input-error"></span>
+      </label>
+      <button type="submit" class="modal__submit-btn">Save</button>
+    </form>
+  </div>
     </div>
-  </body>
+<div class="modal" id="delete-card-modal">
+  <div class="modal__container">
+    <button type="button" class="modal__close-btn modal__close-btn_type_delete">
+      <img src="" alt="Close" class="modal__close-icon" />
+    </button>
+    <h2 class="modal__title"></h2>
+    <p class="modal__text" style="text-align: center; font-size: 20px; font-weight: 500;">
+      Are you sure you want to delete this post?
+    </p>
+    <form class="modal__form" novalidate>
+      <div class="modal__button-group">
+        <button type="submit" class="modal__submit-btn">Yes</button>
+        <button type="button" class="modal__cancel-btn">Cancel</button>
+      </div>
+     </form>
+   </div>
+</body>
 </html>
