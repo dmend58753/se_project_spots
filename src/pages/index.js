@@ -1,3 +1,4 @@
+import buttonSecondarySvg from "../images/Button secondary.svg";
 import "../pages/index.css";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
@@ -12,7 +13,6 @@ import avatarImg from "../images/avatar.jpg";
 import editProfileSvg from "../images/edit-profile.svg";
 import plusSvg from "../images/plus.svg";
 import closeIconSvg from "../images/close-icon.svg";
-
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -33,13 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const plusIcon = document.querySelector(".profile__add-btn-icon");
   const closeIcons = document.querySelectorAll(".modal__close-icon");
   const deleteModal = document.querySelector("#delete-card-modal");
-  const deleteForm = deleteModal.querySelector(".modal__form"); //comment
+  const deleteForm = deleteModal.querySelector(".modal__form");
+  const pencilIcon = document.querySelector(".profile__pencil-icon");
+  if (pencilIcon) pencilIcon.src = buttonSecondarySvg;
 
-
-
-  // FIX: Add cancel button listener OUTSIDE and BEFORE deleteForm listener
-  const cancelButton = deleteModal.querySelector(".modal__cancel-btn"); // comment
-  cancelButton.addEventListener("click", () => { // coment
+  const cancelButton = deleteModal.querySelector(".modal__cancel-btn");
+  cancelButton.addEventListener("click", () => {
     closeModal(deleteModal);
   });
 
@@ -120,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const likeButtonEl = cardElement.querySelector(".card__like-button");
 
-
     // Set initial like state from server data
     if (data.isLiked) {
       likeButtonEl.classList.add("card__like-button_active");
@@ -141,9 +139,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function handleDeleteCard(cardElement, data) {
-    selectedCard = cardElement; 
-    selectedCardId = data._id; 
-    openModal(deleteModal); 
+    selectedCard = cardElement;
+    selectedCardId = data._id;
+    openModal(deleteModal);
   }
 
   function handleLike(e, cardId) {
@@ -204,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const descInput = popupAddCard.querySelector("#post-description-input");
     imageInput.value = "";
     descInput.value = "";
-    
+
     // FIX: Add validation reset for add card form
     const inputList = popupAddCard.querySelectorAll(
       validationConfig.inputSelector
@@ -213,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
       validationConfig.submitButtonSelector
     );
     resetValidation(popupAddCard, inputList, buttonElement, validationConfig);
-    
+
     openModal(popupAddCard);
   });
 
@@ -357,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .finally(() => {
         setButtonText(e.submitter, false, "Delete", "Deleting...");
       });
-  }); 
+  });
 
   previewModal.addEventListener("mousedown", (e) => {
     if (
