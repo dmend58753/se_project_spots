@@ -1,22 +1,23 @@
 .profile {
-display: flex;
-max-width: 1280px;
-margin: 0 auto;
-padding: 34px 0 20px;
-border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 34px 0 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
 
 .profile__avatar {
-margin-right: 20px;
-height: 190px;
-width: 190px;
-border-radius: 10px;
-
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
 }
 
 .profile__column {
-flex-direction: column;
-display: flex;
+  flex-direction: column;
+  display: flex;
 }
 
 .profile__name {
@@ -31,55 +32,48 @@ display: flex;
 }
 
 .profile__description {
- margin:0;
- text-overflow: ellipsis;
- overflow: hidden;
- display: -webkit-box;
- -webkit-line-clamp: 3;
--webkit-box-orient: vertical;
-max-width: 420px;
-
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
 }
 
-.profile__edit-btn{
-  margin-top:auto;
+.profile__edit-btn {
+  margin-top: auto;
   background: #fcf5e5;
   border: none;
   outline: none;
   box-shadow: none;
-  border-radius: 6px; 
+  border-radius: 6px;
   cursor: pointer;
-  color: #212121B2;
+  color: #212121b2;
   margin-right: auto;
   padding-left: 0;
-  opacity: .70;
-
+  opacity: 0.7;
 }
 
-.profile__edit-btn:hover{
-  opacity: 1.0;
-
-
+.profile__edit-btn:hover {
+  opacity: 1;
 }
-
 
 .profile__add-btn {
   margin-left: auto;
   height: 52px;
-    margin-left: auto;
-    color: #fcf5e5;
-    background-color: black;
-    border-radius: 10px;
-    width: 149px;
-    margin-top: 150px;
-    cursor: pointer;
+  margin-left: auto;
+  color: #fcf5e5;
+  background-color: black;
+  border-radius: 10px;
+  width: 149px;
+  margin-top: 150px;
+  cursor: pointer;
 }
 
 .profile__add-btn:hover {
   opacity: 0.8;
 }
-
-
 
 .profile__add-btn-icon {
   width: 14px;
@@ -89,53 +83,99 @@ max-width: 420px;
   margin-top: 2px;
 }
 
-
-
-@media screen and ( max-width: 627px) {
-.profile {
-flex-direction: column;
-max-width: 288px;
-align-items: center;
-text-align: center;
-padding-top: 20px;
-}
-  
-.profile__avatar {
-margin-right: 0 0 12px;
-height: 80px;
-width: 80px;
-margin-top: 20px;
+.profile__avatar-container {
+  position: relative;
+  display: inline-block;
+  width: 190px;
+  height: 190px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.profile__name{
-font-size: 20px;
-margin-bottom: 6px;
-max-width: 288px;
-
-}
-
-.profile__description {
-  margin-bottom: 32px;
-font-size: 16px;
-max-width: 288px;
-}
-
-
-.profile__column{
-margin: 0 0 20px;
-
-
-}
-
-.profile__add-btn {
-  margin:0;
+.profile__avatar-button {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  width:288px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: row; /* Stack icon and text vertically */
+  justify-content: center; /* Push content to the bottom */
+  align-items: flex-end; /* Center horizontally */
+  padding-bottom: 20px;
 }
 
-.profile__edit-btn{
- margin-left: auto;
-margin-right:auto;
+.profile__avatar-button::after {
+  content: "Edit Avatar";
+  color: white;
+  font-size: 14px;
+  margin-left: 8px;
 }
 
+.profile__avatar-container:hover .profile__avatar-button {
+  visibility: visible;
+}
+
+.profile__pencil-icon {
+  filter: brightness(0) invert(1);
+  height: 20px;
+  width: 20px;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__avatar {
+    margin-right: 0 0 12px;
+    height: 190px;
+    width: 190px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin-bottom: 6px;
+    max-width: 288px;
+  }
+
+  .profile__description {
+    margin-bottom: 32px;
+    font-size: 16px;
+    max-width: 288px;
+  }
+
+  .profile__column {
+    margin: 0 0 20px;
+  }
+
+  .profile__add-btn {
+    margin: 0;
+    width: 100%;
+    width: 288px;
+  }
+
+  .profile__edit-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile__avatar-button {
+    visibility: hidden;
+  }
+
+  .profile__avatar-button::after {
+    content: "";
+  }
 }
